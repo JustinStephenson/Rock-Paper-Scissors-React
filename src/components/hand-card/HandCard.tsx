@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Button, ButtonProps } from '../button/Button';
 import { handSigns } from '../../enums/handSigns';
 
@@ -20,13 +19,9 @@ export const HandCard = (props: HandCardProps) => {
 		}
 	};
 
-	const buttonOnClick = () => {
-		return props.onClick();
-	};
-
 	const buttonProps: ButtonProps = {
 		text: getHandSignImg(),
-		onClick: buttonOnClick,
+		onClick: () => props.onClick(),
 	};
 
 	return <Button {...buttonProps}></Button>;
