@@ -1,8 +1,8 @@
 import './Button.scss';
 
 export type ButtonProps = {
-	text?: string;
 	imgLoc?: string;
+	altText?: string;
 	className?: string;
 	onClick: () => void;
 };
@@ -13,7 +13,7 @@ export const Button = (props: ButtonProps) => {
 			className={`button ${props.className || ''}`}
 			onClick={props.onClick}
 		>
-			{props.text}
+			<img className="img" src={props.imgLoc} alt={props.altText} />
 		</button>
 	);
 };
