@@ -1,0 +1,7 @@
+.score-area {
+	display: flex;
+
+	& > * {
+		margin: 0 5rem;
+	}
+}
