@@ -46,6 +46,10 @@ export const GameArea = () => {
 		}
 	};
 
+	const clickHand = (playerHandSign: HandSigns) => {
+		playRound(playerHandSign);
+	};
+
 	return (
 		<React.Fragment>
 			<div className="grid">
@@ -55,19 +59,22 @@ export const GameArea = () => {
 				<div className="grid__description">
 					<Description text={descText} />
 				</div>
-				<div className="grid__cards">
-					<HandCard
-						handSign={HandSigns.rock}
-						onClick={() => playRound(HandSigns.rock)}
-					/>
-					<HandCard
-						handSign={HandSigns.paper}
-						onClick={() => playRound(HandSigns.paper)}
-					/>
-					<HandCard
-						handSign={HandSigns.scissors}
-						onClick={() => playRound(HandSigns.scissors)}
-					/>
+				<div className="grid__game">
+					<div className="grid__game__chosen"></div>
+					<div className="grid__game__cards">
+						<HandCard
+							handSign={HandSigns.rock}
+							onClick={() => clickHand(HandSigns.rock)}
+						/>
+						<HandCard
+							handSign={HandSigns.paper}
+							onClick={() => clickHand(HandSigns.paper)}
+						/>
+						<HandCard
+							handSign={HandSigns.scissors}
+							onClick={() => clickHand(HandSigns.scissors)}
+						/>
+					</div>
 				</div>
 			</div>
 		</React.Fragment>
