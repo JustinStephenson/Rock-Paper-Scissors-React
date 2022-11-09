@@ -32,5 +32,9 @@ export const HandCard = (props: HandCardProps) => {
 		onClick: () => props.onClick(),
 	};
 
-	return <Button {...buttonProps}></Button>;
+	return (
+		<div className="card">
+			<Button {...buttonProps}></Button>
+		</div>
+	);
 };
