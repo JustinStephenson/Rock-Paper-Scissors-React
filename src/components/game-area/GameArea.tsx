@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HandSigns } from '../../enums/handSigns';
 import { getRandomInt, mod } from '../../util/util';
+import { ChosenArea } from '../chosen-area/ChosenArea';
 import { Description } from '../description/Description';
 import { HandCard } from '../hand-card/HandCard';
 import { Score } from '../score/Score';
@@ -60,7 +61,9 @@ export const GameArea = () => {
 					<Description text={descText} />
 				</div>
 				<div className="grid__game">
-					<div className="grid__game__chosen"></div>
+					<div className="grid__game__chosen">
+						<ChosenArea left={HandSigns.paper} right={HandSigns.paper} />
+					</div>
 					<div className="grid__game__cards">
 						<HandCard
 							handSign={HandSigns.rock}

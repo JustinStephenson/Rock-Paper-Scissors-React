@@ -1,8 +1,5 @@
 import { Button, ButtonProps } from '../button/Button';
-import { HandSigns } from '../../enums/handSigns';
-import paperImg from '../../img/paper.png';
-import rockImg from '../../img/rock.png';
-import scissorsImg from '../../img/scissors.png';
+import { getHandSignImg, HandSigns } from '../../enums/handSigns';
 import './HandCard.scss';
 
 export type HandCardProps = {
@@ -10,25 +7,12 @@ export type HandCardProps = {
 	onClick: () => void;
 };
 
-type handSignContents = {
-	imgLoc: string;
-	altText: string;
-};
-
 export const HandCard = (props: HandCardProps) => {
-	const getHandSignContents = (): handSignContents => {
-		if (props.handSign === HandSigns.rock) {
-			return { imgLoc: rockImg, altText: 'Rock' };
-		} else if (props.handSign === HandSigns.paper) {
-			return { imgLoc: paperImg, altText: 'Paper' };
-		} else {
-			return { imgLoc: scissorsImg, altText: 'Scissors' };
-		}
-	};
+	const { imgLoc, altText } = getHandSignImg(props.handSign);
 
 	const buttonProps: ButtonProps = {
-		imgLoc: getHandSignContents().imgLoc,
-		altText: getHandSignContents().altText,
+		imgLoc,
+		altText,
 		onClick: () => props.onClick(),
 	};
 
