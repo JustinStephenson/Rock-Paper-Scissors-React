@@ -2,25 +2,32 @@ import { getHandSignImg, HandSigns } from '../../enums/handSigns';
 import s from './ChosenArea.module.scss';
 
 export type ChosenAreaProps = {
-	left: HandSigns;
-	right: HandSigns;
+	playerHand: HandSigns | null;
+	compHand: HandSigns | null;
 };
 
-export const ChosenArea = (props: ChosenAreaProps) => {
-	const { imgLoc: imgLocL, altText: altTextL } = getHandSignImg(props.left);
-	const { imgLoc: imgLocR, altText: altTextR } = getHandSignImg(props.right);
+export const ChosenArea = (props: ChosenAreaProps): JSX.Element => {
+	const populateImg = (handSign: HandSigns | null) => {
+		if (handSign !== null) {
+			const { imgLoc, altText } = getHandSignImg(handSign);
+			return (
+				<img className={s['area__hand--img']} src={imgLoc} alt={altText} />
+			);
+		}
+		return null;
+	};
 
 	return (
 		<div className={s['grid']}>
 			<div className={`${s['area']} ${s['area--left']}`}>
 				<div className={`${s['area__hand']} ${s['area--left']}`}>
-					<img className={s['area__hand--img']} src={imgLocL} alt={altTextL} />
+					{populateImg(props.playerHand)}
 				</div>
 			</div>
 
 			<div className={`${s['area']} ${s['area--right']}`}>
 				<div className={`${s['area__hand']}`}>
-					<img className={s['area__hand--img']} src={imgLocR} alt={altTextR} />
+					{populateImg(props.compHand)}
 				</div>
 			</div>
 		</div>
