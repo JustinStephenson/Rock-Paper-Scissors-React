@@ -1,7 +1,8 @@
+@import '../../styles/mixins';
+
 .button {
 	display: block;
-	width: var(--card-width);
-	height: var(--card-height);
+	@include cardSize;
 }
 
 .img {

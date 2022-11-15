@@ -1,0 +1,4 @@
+@mixin cardSize {
+	height: var(--card-height);
+	width: var(--card-width);
+}
