@@ -10,6 +10,8 @@ import './GameArea.scss';
 export const GameArea = () => {
 	const [playerScore, setPlayerScore] = useState<number>(0);
 	const [compScore, setCompScore] = useState<number>(0);
+	const [playerHand, setPlayerHand] = useState<HandSigns>(HandSigns.rock);
+	const [compHand, setCompHand] = useState<HandSigns>(HandSigns.rock);
 	const [descText, setDescText] = useState<string>('Choose a hand, good luck!');
 
 	const chooseRandomHandSign = (): HandSigns => {
@@ -30,8 +32,7 @@ export const GameArea = () => {
 		return mod(compHandSign - playerHandSign, 3);
 	};
 
-	const playRound = (playerHandSign: HandSigns) => {
-		const compHandSign = chooseRandomHandSign();
+	const playRound = (playerHandSign: HandSigns, compHandSign: HandSigns) => {
 		const evaluate = evaluateWinner(playerHandSign, compHandSign);
 
 		// Rock = 0, Paper = 1, Scissors = 2
@@ -48,7 +49,10 @@ export const GameArea = () => {
 	};
 
 	const clickHand = (playerHandSign: HandSigns) => {
-		playRound(playerHandSign);
+		const compHandSign = chooseRandomHandSign();
+		setPlayerHand(playerHandSign);
+		setCompHand(compHandSign);
+		playRound(playerHandSign, compHandSign);
 	};
 
 	return (
@@ -62,7 +66,7 @@ export const GameArea = () => {
 				</div>
 				<div className="grid__game">
 					<div className="grid__game__chosen">
-						<ChosenArea left={HandSigns.paper} right={HandSigns.paper} />
+						<ChosenArea left={playerHand} right={compHand} />
 					</div>
 					<div className="grid__game__cards">
 						<HandCard
