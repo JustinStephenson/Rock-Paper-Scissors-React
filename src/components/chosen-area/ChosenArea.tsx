@@ -1,5 +1,5 @@
 import { HandSigns } from '../../enums/handSigns';
-import './ChosenArea.scss';
+import s from './ChosenArea.module.scss';
 
 export type ChosenAreaProps = {
 	left: HandSigns;
@@ -7,5 +7,10 @@ export type ChosenAreaProps = {
 };
 
 export const ChosenArea = (props: ChosenAreaProps) => {
-	return <div>ChosenArea</div>;
+	return (
+		<div className={s.grid}>
+			<div className={s.grid__hand}>hand1</div>
+			<div className={s.grid__hand}>hand2</div>
+		</div>
+	);
 };
