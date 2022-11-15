@@ -5,6 +5,7 @@
 	grid-template-columns: 1fr 1fr;
 
 	&__hand {
-		height: var(--);
+		height: var(--card-height);
+		width: var(--card-width);
 	}
 }
