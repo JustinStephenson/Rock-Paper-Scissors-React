@@ -25,7 +25,6 @@
 		height: 100%;
 		display: grid;
 		grid-template-rows: 1fr 1fr;
-		row-gap: 1rem;
 
 		& > * {
 			border-top: 0.25rem solid black;

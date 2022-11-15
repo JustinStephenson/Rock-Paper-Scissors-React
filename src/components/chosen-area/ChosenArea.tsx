@@ -12,11 +12,16 @@ export const ChosenArea = (props: ChosenAreaProps) => {
 
 	return (
 		<div className={s['grid']}>
-			<div className={`${s['grid__hand']} ${s['grid__hand--left']}`}>
-				<img className={s['grid__hand--img']} src={imgLocL} alt={altTextL} />
+			<div className={`${s['area']} ${s['area--left']}`}>
+				<div className={`${s['area__hand']} ${s['area--left']}`}>
+					<img className={s['area__hand--img']} src={imgLocL} alt={altTextL} />
+				</div>
 			</div>
-			<div className={`${s['grid__hand']} ${s['grid__hand--right']}`}>
-				<img className={s['grid__hand--img']} src={imgLocR} alt={altTextR} />
+
+			<div className={`${s['area']} ${s['area--right']}`}>
+				<div className={`${s['area__hand']}`}>
+					<img className={s['area__hand--img']} src={imgLocR} alt={altTextR} />
+				</div>
 			</div>
 		</div>
 	);
