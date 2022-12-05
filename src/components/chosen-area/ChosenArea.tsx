@@ -11,14 +11,14 @@ export const ChosenArea = (props: ChosenAreaProps): JSX.Element => {
 		if (handSign !== null) {
 			const { imgLoc, altText } = getHandSignImg(handSign);
 			return (
-				<img className={s['area__hand--img']} src={imgLoc} alt={altText} />
+				<img className={`${s['area__hand--img']}`} src={imgLoc} alt={altText} />
 			);
 		}
 		return null;
 	};
 
 	return (
-		<div className={s['grid']}>
+		<div className={`${s['grid']}`}>
 			<div className={`${s['area']} ${s['area--left']}`}>
 				<div className={`${s['area__hand']} ${s['area--left']}`}>
 					{populateImg(props.playerHand)}
