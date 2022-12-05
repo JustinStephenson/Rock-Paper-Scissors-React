@@ -5,7 +5,7 @@ import { ChosenArea } from '../chosen-area/ChosenArea';
 import { Description } from '../description/Description';
 import { HandCard } from '../hand-card/HandCard';
 import { Score } from '../score/Score';
-import './GameArea.scss';
+import s from './GameArea.module.scss';
 
 export const GameArea = () => {
 	const [playerScore, setPlayerScore] = useState<number>(0);
@@ -57,18 +57,18 @@ export const GameArea = () => {
 
 	return (
 		<React.Fragment>
-			<div className="grid">
-				<div className="grid__score">
+			<div className={`${s['grid']}`}>
+				<div className={`${s['grid__score']}`}>
 					<Score playerScore={playerScore} compScore={compScore} />
 				</div>
-				<div className="grid__description">
+				<div className={`${s['grid__description']}`}>
 					<Description text={descText} />
 				</div>
-				<div className="grid__game">
-					<div className="grid__game__chosen">
+				<div className={`${s['grid__game']}`}>
+					<div className={`${s['grid__game__chosen']}`}>
 						<ChosenArea playerHand={playerHand} compHand={compHand} />
 					</div>
-					<div className="grid__game__cards">
+					<div className={`${s['grid__game__cards']}`}>
 						<HandCard
 							handSign={HandSigns.rock}
 							onClick={() => clickHand(HandSigns.rock)}
