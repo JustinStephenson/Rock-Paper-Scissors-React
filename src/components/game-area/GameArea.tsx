@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { HandSigns } from '../../enums/handSigns';
-import { getRandomInt, mod } from '../../util/util';
+import { chooseRandomHandSign, HandSigns } from '../../enums/handSigns';
+import { mod } from '../../util/util';
 import { ChosenArea } from '../chosen-area/ChosenArea';
 import { Description } from '../description/Description';
 import { HandCard } from '../hand-card/HandCard';
@@ -13,17 +13,6 @@ export const GameArea = () => {
 	const [playerHand, setPlayerHand] = useState<HandSigns | null>(null);
 	const [compHand, setCompHand] = useState<HandSigns | null>(null);
 	const [descText, setDescText] = useState<string>('Choose a hand, good luck!');
-
-	const chooseRandomHandSign = (): HandSigns => {
-		const randomInt: number = getRandomInt(3);
-		if (randomInt === 1) {
-			return HandSigns.paper;
-		} else if (randomInt === 2) {
-			return HandSigns.rock;
-		} else {
-			return HandSigns.scissors;
-		}
-	};
 
 	const evaluateWinner = (
 		playerHandSign: HandSigns,
