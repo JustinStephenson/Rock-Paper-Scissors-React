@@ -65,18 +65,18 @@ describe('GameArea.tsx functional tests', () => {
 		render(<GameArea />);
 
 		const description = screen.getByText('Choose a hand, good luck!');
-		const rockButton = screen.getByAltText('Paper');
+		const paperButton = screen.getByAltText('Paper');
 
 		// Player: Paper, Computer: Rock
-		await rockButton.click();
+		await paperButton.click();
 		expect(description).toHaveTextContent('You Win!');
 
 		// Player: Paper, Computer: Paper
-		await rockButton.click();
+		await paperButton.click();
 		expect(description).toHaveTextContent('Draw!');
 
 		// Player: Paper, Computer: Scissors
-		await rockButton.click();
+		await paperButton.click();
 		expect(description).toHaveTextContent('You Lose!');
 	});
 
@@ -84,18 +84,42 @@ describe('GameArea.tsx functional tests', () => {
 		render(<GameArea />);
 
 		const description = screen.getByText('Choose a hand, good luck!');
-		const rockButton = screen.getByAltText('Scissors');
+		const scissorsButton = screen.getByAltText('Scissors');
 
 		// Player: Scissors, Computer: Rock
-		await rockButton.click();
+		await scissorsButton.click();
 		expect(description).toHaveTextContent('You Lose!');
 
 		// Player: Scissors, Computer: Paper
-		await rockButton.click();
+		await scissorsButton.click();
 		expect(description).toHaveTextContent('You Win!');
 
 		// Player: Scissors, Computer: Scissors
-		await rockButton.click();
+		await scissorsButton.click();
 		expect(description).toHaveTextContent('Draw!');
+	});
+
+	test('Score changes based on outcome', async () => {
+		render(<GameArea />);
+
+		const playerScore = screen.getByText('Player Score: 0');
+		const compScore = screen.getByText('Computer Score: 0');
+
+		const paperButton = screen.getByAltText('Paper');
+
+		// Player wins, player score increases
+		await paperButton.click();
+		expect(playerScore).toHaveTextContent('Player Score: 1');
+		expect(compScore).toHaveTextContent('Computer Score: 0');
+
+		// Draw, no score increases
+		await paperButton.click();
+		expect(playerScore).toHaveTextContent('Player Score: 1');
+		expect(compScore).toHaveTextContent('Computer Score: 0');
+
+		// Computer wins, computer score increases
+		await paperButton.click();
+		expect(playerScore).toHaveTextContent('Player Score: 1');
+		expect(compScore).toHaveTextContent('Computer Score: 1');
 	});
 });
