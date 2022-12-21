@@ -20,13 +20,16 @@ export const ChosenArea = (props: ChosenAreaProps): JSX.Element => {
 	return (
 		<div className={`${s['grid']}`}>
 			<div className={`${s['area']} ${s['area--left']}`}>
-				<div className={`${s['area__hand']} ${s['area--left']}`}>
+				<div
+					className={`${s['area__hand']} ${s['area--left']}`}
+					data-testid="left-hand"
+				>
 					{populateImg(props.playerHand)}
 				</div>
 			</div>
 
 			<div className={`${s['area']} ${s['area--right']}`}>
-				<div className={`${s['area__hand']}`}>
+				<div className={`${s['area__hand']}`} data-testid="right-hand">
 					{populateImg(props.compHand)}
 				</div>
 			</div>
