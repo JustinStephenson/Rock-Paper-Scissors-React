@@ -41,7 +41,7 @@ deploy production:
   before_script:
     - git config --global user.name "$USER_NAME"
     - git config --global user.email "$USER_EMAIL"
-    - git remote set-url origin https://$USER_NAM:$USER_TOKEN@$GIT_DOMAIN
+    - git remote set-url origin https://$USER_NAME:$USER_TOKEN@$GIT_DOMAIN
   script:
     - npm install
     - npm install -g gh-pages
