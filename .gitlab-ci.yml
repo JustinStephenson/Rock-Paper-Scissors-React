@@ -5,6 +5,11 @@ stages:
   - build
   - deploy
 
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
 variables:
   PRODUCTION_DOMAIN: https://justinstephenson.github.io/Rock-Paper-Scissors-React
   GIT_DOMAIN: https://$USER_NAME:$USER_TOKEN@github.com/JustinStephenson/Rock-Paper-Scissors-React.git
