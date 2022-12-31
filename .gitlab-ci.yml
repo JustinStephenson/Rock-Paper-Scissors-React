@@ -1,0 +1,33 @@
+image: node:lts
+
+stages:
+  test
+  deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+variables:
+  PRODUCTION_DOMAIN: justinstephenson.github.io/Rock-Paper-Scissors-React
+
+black box tests:
+  stage: test
+  only:
+    - main
+    - merge_requests
+  script:
+    - npm install
+    - npm test
+
+deploy production:
+  stage: deploy
+  only:
+    - main
+  environment:
+    name: production github-pages
+    url: https://$PRODUCTION_DOMAIN
+  script:
+    - npm install
+    - npm deploy
