@@ -45,4 +45,4 @@ deploy production:
   script:
     - npm install
     - npm install -g gh-pages
-    - gh-pages -d build -u $USER_NAME <$USER_EMAIL>
+    - gh-pages -d build -u "$USER_NAME <$USER_EMAIL>"
