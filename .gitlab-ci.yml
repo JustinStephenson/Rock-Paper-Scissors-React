@@ -39,8 +39,9 @@ deploy production:
     name: production github-pages
     url: https://$PRODUCTION_DOMAIN
   before_script:
-  - git config --global user.name "$USER_NAME"
-  - git config --global user.email "$USER_EMAIL"
+    - git config --global user.name "$USER_NAME"
+    - git config --global user.email "$USER_EMAIL"
+    - git remote set-url origin https://$USER_TOKEN@$GIT_DOMAIN
   script:
     - npm install
     - npm install -g gh-pages
