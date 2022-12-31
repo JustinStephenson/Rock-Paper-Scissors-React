@@ -12,7 +12,7 @@ cache:
 
 variables:
   PRODUCTION_DOMAIN: https://justinstephenson.github.io/Rock-Paper-Scissors-React
-  GIT_DOMAIN: git@github.com:JustinStephenson/Rock-Paper-Scissors-React.git
+  GIT_DOMAIN: https://$USER_NAME:$USER_TOKEN@github.com/JustinStephenson/Rock-Paper-Scissors-React.git
 
 black box tests:
   stage: test
