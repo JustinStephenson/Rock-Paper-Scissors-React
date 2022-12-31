@@ -30,4 +30,4 @@ deploy production:
     url: https://$PRODUCTION_DOMAIN
   script:
     - npm install
-    - npm deploy
+    - npm run deploy
