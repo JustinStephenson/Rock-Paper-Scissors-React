@@ -30,4 +30,5 @@ deploy production:
     url: https://$PRODUCTION_DOMAIN
   script:
     - npm install
+    - npm install -g gh-pages
     - gh-pages -d build --user "$USER_NAME <$USER_EMAIL>"
