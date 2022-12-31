@@ -1,8 +1,8 @@
 image: node:lts
 
 stages:
-  test
-  deploy
+  - test
+  - deploy
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
